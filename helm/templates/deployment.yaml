@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helmforrandom
+spec:
+  selector:
+    matchLabels:
+      app: helmforrandom
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: helmforrandom
+    spec:
+      containers:
+      - name: {{ .Values.image.name }}
+        image: {{ .Values.image.repository }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
