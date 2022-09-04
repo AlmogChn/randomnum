@@ -1,0 +1,10 @@
+replicaCount: 5
+
+image:
+  repository: almogchn/randomnum:<Version>
+  pullPolicy: Always
+  tag: ""
+  name: almog
+  
+service:
+    type: LoadBalancer
